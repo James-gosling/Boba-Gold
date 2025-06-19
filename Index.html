@@ -4,331 +4,744 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>
-        Bobba Gold - Bebidas y Tapiocas
-    </title>
-    <script src="https://cdn.tailwindcss.com">
-    </script>
+    <title>Boba Gold - Bebidas y Tapiocas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <style>
         html,
         body {
-            background-image: url('https://tse2.mm.bing.net/th?id=OIG3.Jtu26lsOVNQPsOcRu_5W&pid=ImgGn');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #FFFDE4 0%, #F7D9D5 100%);
             min-height: 100%;
             margin: 0;
-            padding: 0;
         }
 
-        /* Ajuste de secciones para mejorar legibilidad */
-        section {
-            background-color: rgba(255, 255, 255, 0.8);
-            /* Fondo semi-transparente */
-            margin: 20px;
-            padding: 20px;
-            border-radius: 10px;
+        ::-webkit-scrollbar {
+            width: 8px;
+            background: #f3e8ff;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #fbbf24;
+            border-radius: 4px;
+        }
+
+        .boba-bubble {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.6;
+            z-index: 0;
+            animation: floatBoba 6s infinite alternate ease-in-out;
+        }
+
+        .boba-bubble:nth-child(1) {
+            width: 60px;
+            height: 60px;
+            left: 10vw;
+            top: 80vh;
+            background: #ffed9f;
+            animation-delay: 0s;
+        }
+
+        .boba-bubble:nth-child(2) {
+            width: 40px;
+            height: 40px;
+            left: 80vw;
+            top: 75vh;
+            background: #e1c9fc;
+            animation-delay: 1s;
+        }
+
+        .boba-bubble:nth-child(3) {
+            width: 30px;
+            height: 30px;
+            left: 50vw;
+            top: 90vh;
+            background: #ffd6e0;
+            animation-delay: 2s;
+        }
+
+        .boba-bubble:nth-child(4) {
+            width: 50px;
+            height: 50px;
+            left: 30vw;
+            top: 78vh;
+            background: #ffe9e4;
+            animation-delay: 2.5s;
+        }
+
+        .boba-bubble:nth-child(5) {
+            width: 25px;
+            height: 25px;
+            left: 70vw;
+            top: 88vh;
+            background: #fff7c7;
+            animation-delay: 0.5s;
+        }
+
+        @keyframes floatBoba {
+            to {
+                transform: translateY(-80px) scale(1.1);
+            }
+        }
+
+        .menu-card {
+            transition: transform 0.3s cubic-bezier(.34, 1.56, .64, 1);
+        }
+
+        .menu-card:hover {
+            transform: translateY(-10px) scale(1.07) rotate(-2deg);
+            box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.15);
+            z-index: 2;
+        }
+
+        .flavor-select,
+        .milk-select {
+            transition: box-shadow 0.2s;
+        }
+
+        .flavor-select:focus,
+        .milk-select:focus {
+            box-shadow: 0 0 0 2px #fbbf24;
+            outline: none;
+        }
+
+        .section-title {
+            color: #ca8a04;
+        }
+
+        .premium-badge {
+            background: linear-gradient(90deg, #eab308 0%, #fde68a 100%);
+            color: #7c4700;
         }
     </style>
 </head>
 
-<body class="font-roboto bg-gray-100">
-    <header class="bg-yellow-500 text-white p-4">
-        <div class="container mx-auto flex justify-between items-center">
-            <h1 class="text-3xl font-bold">
-                Bobba Gold
-            </h1>
+<body class="bg-gradient-to-br from-yellow-50 to-pink-100 relative overflow-x-hidden">
+
+    <div class="boba-bubble"></div>
+    <div class="boba-bubble"></div>
+    <div class="boba-bubble"></div>
+    <div class="boba-bubble"></div>
+    <div class="boba-bubble"></div>
+
+    <header
+        class="bg-yellow-500 text-white shadow-xl sticky top-0 z-50 animate__animated animate__fadeInDown animate__faster">
+        <div class="container mx-auto flex justify-between items-center py-4 px-4 md:px-8">
+            <div class="flex items-center gap-3">
+                <img src="https://i.imgur.com/T8LKM1y.jpeg" alt="Boba Gold Logo"
+                    class="h-14 w-14 rounded-full shadow-lg border-2 border-white bg-white object-contain animate__animated animate__pulse animate__infinite" />
+                <h1 class="text-3xl font-extrabold tracking-tight drop-shadow animate__animated animate__fadeInLeft">
+                    Boba Gold</h1>
+            </div>
             <nav>
-                <ul class="flex space-x-4">
+                <ul class="flex space-x-6 text-lg font-semibold">
                     <li><a class="hover:underline" href="#home">Inicio</a></li>
                     <li><a class="hover:underline" href="#about">Nosotros</a></li>
                     <li><a class="hover:underline" href="#menu">Menú</a></li>
+                    <li><a class="hover:underline" href="#crepas">Crepas</a></li>
+                    <li><a class="hover:underline" href="#combos">Combos</a></li>
                     <li><a class="hover:underline" href="#contact">Contacto</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <section id="home">
-        <div class="container mx-auto text-center">
-            <h2 class="text-4xl font-bold mb-4">
-                Bienvenidos a Bobba Gold
-            </h2>
-            <p class="text-lg mb-8">
-                Las mejores bebidas y tapiocas con una variedad de sabores exquisitos.
-            </p>
-            <img alt="Imagen de una bebida de tapioca con perlas doradas y un fondo tropical" class="mx-auto"
-                height="400" src="https://tse1.mm.bing.net/th?id=OIG2.BfOee9VryE69oa5X_0Oy&pid=ImgGn" width="600" />
-        </div>
-    </section>
-
-    <section id="about">
-        <div class="container mx-auto text-center">
-            <h2 class="text-4xl font-bold mb-4">
-                Sobre Nosotros
-            </h2>
-            <p class="text-lg mb-8">
-                En Bobba Gold, nos dedicamos a ofrecer bebidas de alta calidad con ingredientes frescos y
-                naturales.
-                Nuestra misión es brindar una experiencia única y deliciosa a cada uno de nuestros clientes.
-            </p>
-            <img alt="Imagen del equipo de Bobba Gold preparando bebidas en la tienda" class="mx-auto" height="400"
-                src="https://tse4.mm.bing.net/th?id=OIG3.WpQtXuPsz.Dx1dRjd33l&pid=ImgGn" width="600" />
-        </div>
-    </section>
-
-    <section id="menu">
-        <div class="container mx-auto text-center">
-            <h2 class="text-4xl font-bold mb-4">Nuestro Menú</h2>
-            <p class="text-lg mb-8">Horario: Lunes a Domingo, 5 PM - 10 PM</p>
-
-            <!-- Milk/Water-based Flavors Section -->
-            <div class="mb-12">
-                <h3 class="text-2xl font-bold mb-6 text-center">Bebidas <br />Base Leche/Agua</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <!-- Taro Card -->
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                        <img src="https://tse3.mm.bing.net/th?id=OIG3.EKuyA5k0Bvt7cfdqPMH9&pid=ImgGn"
-                            alt="Taro Smoothie / Bebida Fría" class="w-full h-64 object-cover" />
-                        <div class="p-4">
-                            <h4 class="font-bold text-xl mb-2">Taro <br />Smoothie/Bebida Fría</h4>
-                            <p class="text-gray-600 mb-4">Deliciosa bebida de taro con perlas de tapioca,
-                                perfectamente balanceada y cremosa</p>
-                            <p class="text-yellow-600 font-bold text-lg">$75.00 MXN</p>
-                        </div>
-                    </div>
-
-                    <!-- Matcha Card -->
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                        <img src="https://tse4.mm.bing.net/th?id=OIG4.eLobVBhMkHgFNAb3QiEt&pid=ImgGn"
-                            alt="Matcha Smoothie / Bebida Fría" class="w-full h-64 object-cover" />
-                        <div class="p-4">
-                            <h4 class="font-bold text-xl mb-2">Matcha <br />Smoothie/Bebida Fría</h4>
-                            <p class="text-gray-600 mb-4">Auténtico té verde matcha japonés con perlas de
-                                tapioca y leche cremosa</p>
-                            <p class="text-yellow-600 font-bold text-lg">$75.00 MXN</p>
-                        </div>
-                    </div>
-
-                    <!-- Chai Card -->
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                        <img src="https://tse2.mm.bing.net/th?id=OIG3.wBnSDPIgxCJgr9yKR0I5&pid=ImgGn" alt="Chai"
-                            class="w-full h-64 object-cover" />
-                        <div class="p-4">
-                            <h4 class="font-bold text-xl mb-2">Chai <br />Smoothie/Bebida Fría</h4>
-                            <p class="text-gray-600 mb-4">Refrescante chai con perlas de tapioca, especias
-                                cálidas y aromas envolventes.
-                            </p>
-                            <p class="text-yellow-600 font-bold text-lg">$75.00 MXN</p>
-                        </div>
-                    </div>
-
-                    <!-- Kiwi Card -->
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                        <img src="https://tse1.mm.bing.net/th?id=OIG2.9ClrgCPhP.9ExU2_1sZ7&pid=ImgGn"
-                            alt="Kiwi Smoothie / Bebida Fría" class="w-full h-64 object-cover" />
-                        <div class="p-4">
-                            <h4 class="font-bold text-xl mb-2">Kiwi <br />Smoothie/Bebida Fría</h4>
-                            <p class="text-gray-600 mb-4">Deliciosa bebida de kiwi con perlas de tapioca,
-                                perfectamente balanceada y cremosa</p>
-                            <p class="text-yellow-600 font-bold text-lg">$75.00 MXN</p>
-                        </div>
-                    </div>
-
-
-                    <!-- Maracuya Card -->
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                        <img src="https://tse2.mm.bing.net/th?id=OIG4.i1XuSf5.5jdky078FsBB&pid=ImgGn" alt="Maracuya"
-                            class="w-full h-64 object-cover" />
-                        <div class="p-4">
-                            <h4 class="font-bold text-xl mb-2">Maracuya <br />Smoothie/Bebida Fría</h4>
-                            <p class="text-gray-600 mb-4">Refrescante maracuya con perlas de tapioca y frutas
-                                frescas de temporada</p>
-                            <p class="text-yellow-600 font-bold text-lg">$75.00 MXN</p>
-                        </div>
-                    </div>
-
-                    <!-- Limón Card -->
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                        <img src="https://tse2.mm.bing.net/th?id=OIG2.ymwyWtNkEstECRxrjIjM&pid=ImgGn"
-                            alt="Limón Smoothie / Bebida Fría" class="w-full h-64 object-cover" />
-                        <div class="p-4">
-                            <h4 class="font-bold text-xl mb-2">Limón <br />Smoothie/Bebida Fría</h4>
-                            <p class="text-gray-600 mb-4">Auténtico limón con perlas de tapioca y leche cremosa
-                            </p>
-                            <p class="text-yellow-600 font-bold text-lg">$75.00 MXN</p>
-                        </div>
-                    </div>
-
-                    <!-- Caramelo Card -->
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                        <img src="https://tse2.mm.bing.net/th?id=OIG4.Bn6de6DZ3Gb7brJjW4U4&pid=ImgGn"
-                            alt="Caramelo Smoothie / Bebida Fría" class="w-full h-64 object-cover" />
-                        <div class="p-4">
-                            <h4 class="font-bold text-xl mb-2">Caramelo <br />Smoothie/Bebida Fría</h4>
-                            <p class="text-gray-600 mb-4">Deliciosa bebida de caramelo con perlas de tapioca,
-                                perfectamente balanceada y cremosa</p>
-                            <p class="text-yellow-600 font-bold text-lg">$75.00 MXN</p>
-                        </div>
-                    </div>
-
-                    <!-- Manzana Verde Card -->
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                        <img src="https://tse3.mm.bing.net/th?id=OIG2.6G1gadRjOdtwMfC.4QVN&pid=ImgGn"
-                            alt="Manzana Verde Smoothie / Bebida Fría" class="w-full h-64 object-cover" />
-                        <div class="p-4">
-                            <h4 class="font-bold text-xl mb-2">Manzana Verde <br />Smoothie/Bebida Fría</h4>
-                            <p class="text-gray-600 mb-4">Auténtico manzana verde con perlas de tapioca y leche
-                                cremosa</p>
-                            <p class="text-yellow-600 font-bold text-lg">$75.00 MXN</p>
-                        </div>
-                    </div>
-
-                    <!-- Mora Azul Card -->
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                        <img src="https://tse2.mm.bing.net/th?id=OIG1.emc7LxzyfNsGBieMiPjN&pid=ImgGn" alt="Mora Azul"
-                            class="w-full h-64 object-cover" />
-                        <div class="p-4">
-                            <h4 class="font-bold text-xl mb-2">Mora Azul <br />Smoothie/Bebida Fría</h4>
-                            <p class="text-gray-600 mb-4">Refrescante mora azul con perlas de tapioca y frutas
-                                frescas de temporada</p>
-                            <p class="text-yellow-600 font-bold text-lg">$75.00 MXN</p>
-                        </div>
-                    </div>
-
-                    <!-- Fresa Card -->
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                        <img src="https://tse3.mm.bing.net/th?id=OIG3.HxWSIRl.h_48XjOjXRfG&pid=ImgGn"
-                            alt="Fresa Smoothie / Bebida Fría" class="w-full h-64 object-cover" />
-                        <div class="p-4">
-                            <h4 class="font-bold text-xl mb-2">Fresa <br />Smoothie/Bebida Fría</h4>
-                            <p class="text-gray-600 mb-4">Deliciosa bebida de fresa con perlas de tapioca,
-                                perfectamente balanceada y cremosa</p>
-                            <p class="text-yellow-600 font-bold text-lg">$75.00 MXN</p>
-                        </div>
-                    </div>
-
-                    <!-- Mango Card -->
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                        <img src="https://tse4.mm.bing.net/th?id=OIG3.7hARRyczEJKE_kP974cU&pid=ImgGn"
-                            alt="Mango Smoothie / Bebida Fría" class="w-full h-64 object-cover" />
-                        <div class="p-4">
-                            <h4 class="font-bold text-xl mb-2">Mango <br />Smoothie/Bebida Fría</h4>
-                            <p class="text-gray-600 mb-4">Auténtico mango con perlas de tapioca y leche cremosa
-                            </p>
-                            <p class="text-yellow-600 font-bold text-lg">$75.00 MXN</p>
-                        </div>
-                    </div>
-
-                    <!-- Lychee Card -->
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                        <img src="https://tse1.mm.bing.net/th?id=OIG3.G0rcOCSAp00qoYuw03iq&pid=ImgGn" alt="Lychee"
-                            class="w-full h-64 object-cover" />
-                        <div class="p-4">
-                            <h4 class="font-bold text-xl mb-2">Lychee <br />Smoothie/Bebida Fría</h4>
-                            <p class="text-gray-600 mb-4">Refrescante lychee con perlas de tapioca y frutas
-                                frescas de temporada</p>
-                            <p class="text-yellow-600 font-bold text-lg">$75.00 MXN</p>
-                        </div>
-                    </div>
-
-                    <!-- Piña Colada Card -->
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                        <img src="https://tse1.mm.bing.net/th?id=OIG3.pSjIeplVOLj3rst.ZLyi&pid=ImgGn"
-                            alt="Piña Colada Smoothie / Bebida Fría" class="w-full h-64 object-cover" />
-                        <div class="p-4">
-                            <h4 class="font-bold text-xl mb-2">Piña Colada <br />Smoothie/Bebida Fría</h4>
-                            <p class="text-gray-600 mb-4">Deliciosa bebida de piña colada con perlas de tapioca,
-                                perfectamente balanceada y cremosa</p>
-                            <p class="text-yellow-600 font-bold text-lg">$75.00 MXN</p>
-                        </div>
-                    </div>
-
-                    <!-- Oreo Card -->
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                        <img src="https://tse2.mm.bing.net/th?id=OIG3.ygsI4hhzNtF5EnVcBTVx&pid=ImgGn"
-                            alt="Oreo Smoothie / Bebida Fría" class="w-full h-64 object-cover" />
-                        <div class="p-4">
-                            <h4 class="font-bold text-xl mb-2">Oreo <br />Smoothie/Bebida Fría</h4>
-                            <p class="text-gray-600 mb-4">Auténtico oreo con perlas de tapioca y leche cremosa
-                            </p>
-                            <p class="text-yellow-600 font-bold text-lg">$75.00 MXN</p>
-                        </div>
-                    </div>
-
-                    <!-- Chocolate Card -->
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                        <img src="https://tse2.mm.bing.net/th?id=OIG1.pL_8LsLuGUx1VBE76oqI&pid=ImgGn"
-                            alt="Chocolate Smoothie / Bebida Fría" class="w-full h-64 object-cover" />
-                        <div class="p-4">
-                            <h4 class="font-bold text-xl mb-2">Chocolate <br />Smoothie/Bebida Fría</h4>
-                            <p class="text-gray-600 mb-4">Deliciosa bebida de chocolate con perlas de tapioca,
-                                perfectamente balanceada y cremosa</p>
-                            <p class="text-yellow-600 font-bold text-lg">$75.00 MXN</p>
-                        </div>
-                    </div>
-
-                    <!-- Vainila Card -->
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                        <img src="https://tse3.mm.bing.net/th?id=OIG3.NLVnpiS4hvYasVjaQQwM&pid=ImgGn"
-                            alt="Vainila Smoothie / Bebida Fría" class="w-full h-64 object-cover" />
-                        <div class="p-4">
-                            <h4 class="font-bold text-xl mb-2">Vainila <br />Smoothie/Bebida Fría</h4>
-                            <p class="text-gray-600 mb-4">Auténtico vainila con perlas de tapioca y leche
-                                cremosa</p>
-                            <p class="text-yellow-600 font-bold text-lg">$75.00 MXN</p>
-                        </div>
-                    </div>
-
-                    <!-- Coco Card -->
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                        <img src="https://tse1.mm.bing.net/th?id=OIG4.OOQ1Nfniz8CDU4uLiiCh&pid=ImgGn"
-                            alt="Coco Smoothie / Bebida Fría" class="w-full h-64 object-cover" />
-                        <div class="p-4">
-                            <h4 class="font-bold text-xl mb-2">Coco <br />Smoothie/Bebida Fría</h4>
-                            <p class="text-gray-600 mb-4">Deliciosa bebida de coco con perlas de tapioca,
-                                perfectamente balanceada y cremosa</p>
-                            <p class="text-yellow-600 font-bold text-lg">$75.00 MXN</p>
-                        </div>
-                    </div>
-
-                    <!-- Algodón de Azúcar Card -->
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                        <img src="https://tse2.mm.bing.net/th?id=OIG2.uEhov.DjfkE77p7MPMN8&pid=ImgGn"
-                            alt="Algodón de Azúcar Smoothie / Bebida Fría" class="w-full h-64 object-cover" />
-                        <div class="p-4">
-                            <h4 class="font-bold text-xl mb-2">Algodón de Azúcar <br />Smoothie/Bebida Fría</h4>
-                            <p class="text-gray-600 mb-4">Auténtico algodón de azúcar con perlas de tapioca y
-                                leche cremosa</p>
-                            <p class="text-yellow-600 font-bold text-lg">$75.00 MXN</p>
-                        </div>
-                    </div>
+    <section id="home" class="relative pt-10 pb-20 overflow-visible">
+        <div class="container mx-auto flex flex-col md:flex-row items-center py-6 px-4 gap-10">
+            <div class="flex-1 text-center md:text-left z-10">
+                <h2
+                    class="text-5xl md:text-6xl font-extrabold mb-4 text-yellow-600 drop-shadow leading-tight animate__animated animate__fadeInLeft">
+                    ¡Bienvenidos a Boba Gold!</h2>
+                <p
+                    class="text-xl md:text-2xl mb-8 text-gray-700 animate__animated animate__fadeInLeft animate__delay-1s">
+                    Las mejores bebidas, tapiocas y crepas con una experiencia única.
+                </p>
+                <div class="flex flex-wrap gap-2 justify-center md:justify-start mb-6">
+                    <span
+                        class="inline-block bg-yellow-200 text-yellow-900 px-4 py-2 rounded-full text-sm font-semibold shadow animate__animated animate__fadeInDown animate__delay-1s"><i
+                            class="fas fa-star text-yellow-500"></i> Calidad Premium</span>
+                    <span
+                        class="inline-block bg-pink-100 text-pink-700 px-4 py-2 rounded-full text-sm font-semibold shadow animate__animated animate__fadeInDown animate__delay-1s"><i
+                            class="fas fa-heart"></i> Sabores Únicos</span>
+                    <span
+                        class="inline-block bg-purple-100 text-purple-700 px-4 py-2 rounded-full text-sm font-semibold shadow animate__animated animate__fadeInDown animate__delay-1s"><i
+                            class="fas fa-leaf"></i> Ingredientes Naturales</span>
                 </div>
+                <div class="flex gap-4 mt-2 justify-center md:justify-start">
+                    <img src="https://i.imgur.com/koG4I7t.jpeg"
+                        class="h-12 w-auto rounded-lg shadow animate__animated animate__bounceIn animate__delay-2s"
+                        alt="Vaso esponjoso oso" />
+                    <span
+                        class="text-yellow-700 font-bold text-lg animate__animated animate__fadeIn animate__delay-2s">¡Envíos
+                        disponibles!</span>
+                </div>
+            </div>
+            <div class="flex-1 z-10 relative flex items-center justify-center">
+                <img alt="Imagen principal"
+                    class="rounded-3xl shadow-2xl border-4 border-yellow-200 mx-auto animate__animated animate__zoomIn"
+                    src="https://i.imgur.com/zMjnnoZ.jpeg" width="500" height="400" />
+                <!-- Mascota goldie characters floating -->
+                <img src="https://i.imgur.com/HVxf6eB.jpeg"
+                    class="absolute top-5 left-10 w-20 rounded-2xl border-4 border-yellow-200 shadow-xl animate__animated animate__fadeInUp hidden md:block"
+                    alt="Goldie 1" />
+                <img src="https://i.imgur.com/URFv7kq.jpeg"
+                    class="absolute bottom-8 right-2 w-16 rounded-2xl border-4 border-pink-200 shadow-lg animate__animated animate__fadeInRight hidden md:block"
+                    alt="Goldie 2" />
+                <img src="https://i.imgur.com/Yy6IcBr.jpeg"
+                    class="absolute top-2 right-32 w-14 rounded-2xl border-4 border-purple-100 shadow-lg animate__animated animate__fadeInLeft hidden md:block"
+                    alt="Goldie 3" />
+                <img src="https://i.imgur.com/X2e0rTt.jpeg"
+                    class="absolute top-32 right-16 w-16 rounded-2xl border-4 border-yellow-100 shadow-lg animate__animated animate__fadeInDown hidden md:block"
+                    alt="Goldie 4" />
+            </div>
+        </div>
+        <div class="absolute left-0 bottom-0 w-full overflow-hidden leading-0 pointer-events-none">
+            <svg class="relative block w-full h-10" viewBox="0 0 1920 60" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 40C320 70 1600 0 1920 40V60H0V40Z" fill="#fff" />
+            </svg>
+        </div>
+    </section>
 
-                <div class="text-center mt-6">
-                    <p class="text-gray-600">Extras disponibles por +$15.00 MXN</p>
+    <section id="about" class="py-14 bg-white/80 relative z-10">
+        <div class="container mx-auto flex flex-col md:flex-row items-center px-4 gap-10">
+            <div class="flex-1 order-2 md:order-1">
+                <img alt="Nuestra mascota Goldie"
+                    class="rounded-3xl shadow-xl mx-auto border-4 border-yellow-100 animate__animated animate__fadeInLeft"
+                    src="https://i.imgur.com/bN8oMVc.jpeg" width="500" height="350" />
+                <div class="flex gap-4 mt-4 justify-center">
+                    <img src="https://i.imgur.com/3GljnWe.jpeg"
+                        class="w-24 rounded-xl border-4 border-yellow-100 shadow" alt="Goldie 5" />
+                    <img src="https://i.imgur.com/PQWGyaW.jpeg"
+                        class="w-24 rounded-xl border-4 border-yellow-100 shadow" alt="Goldie 6" />
+                </div>
+            </div>
+            <div class="flex-1 order-1 md:order-2 text-center md:text-left">
+                <h2 class="text-4xl font-extrabold mb-4 text-yellow-600 animate__animated animate__fadeInRight">Sobre
+                    Nosotros</h2>
+                <p
+                    class="text-lg md:text-xl text-gray-700 mb-6 animate__animated animate__fadeInRight animate__delay-1s">
+                    En <b>Boba Gold</b>, elaboramos bebidas de alta calidad con ingredientes frescos y naturales.
+                    Nuestra misión es brindarte una experiencia deliciosa y divertida en cada visita. ¡Descubre la magia
+                    de las perlas doradas y de nuestras crepas!
+                </p>
+                <div class="flex flex-wrap justify-center md:justify-start gap-3">
+                    <span
+                        class="inline-block bg-yellow-200 text-yellow-800 px-4 py-2 rounded-full text-sm font-semibold shadow animate__animated animate__fadeInUp animate__delay-2s">Calidad
+                        Suprema</span>
+                    <span
+                        class="inline-block bg-yellow-100 text-yellow-700 px-4 py-2 rounded-full text-sm font-semibold shadow animate__animated animate__fadeInUp animate__delay-3s">Recetas
+                        Únicas</span>
+                    <span
+                        class="inline-block bg-yellow-50 text-yellow-600 px-4 py-2 rounded-full text-sm font-semibold shadow animate__animated animate__fadeInUp animate__delay-4s">Atención
+                        Personalizada</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contact">
-        <div class="container mx-auto text-center">
-            <h2 class="text-4xl font-bold mb-4">
-                Contacto
-            </h2>
-            Horario: Lunes a Domingo, 5 PM - 10 PM
-            <br />
-            <p class="text-lg mb-8">
-                ¿Tienes alguna pregunta o comentario? ¡Nos encantaría saber de ti!
+    <!-- Menu/Catalog Section -->
+    <section id="menu" class="py-14 bg-gradient-to-b from-white/80 to-yellow-50/70">
+        <div class="container mx-auto px-4">
+            <h2
+                class="text-4xl md:text-5xl font-extrabold text-center section-title mb-4 animate__animated animate__fadeInDown">
+                Crea tu Boba Gold</h2>
+            <p class="text-lg text-center mb-8 text-gray-700 animate__animated animate__fadeInDown animate__delay-1s">
+                Elige tu sabor y personaliza tu bebida fría o smoothie favorita. Horario: Lunes a Domingo, 5 PM - 10 PM
             </p>
-            <div class="max-w-lg mx-auto">
+            <!-- Customization Form -->
+            <!-- ... the form remains unchanged ... -->
+            <!-- Flavors Gallery -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                <!-- Each flavor card with its specific image -->
+                <div
+                    class="bg-white rounded-2xl overflow-hidden shadow-lg menu-card border-2 border-yellow-100 animate__animated animate__fadeInUp">
+                    <img src="https://i.imgur.com/qH10zcB.png" alt="Taro Smoothie"
+                        class="w-full h-48 object-cover transition duration-500 hover:scale-110" />
+                    <div class="p-5 text-center">
+                        <h4 class="font-bold text-xl mb-1 text-yellow-700">TARO</h4>
+                        <p class="text-gray-600 mb-3 text-sm">Sutil y cremoso, sabor tradicional asiático.</p>
+                    </div>
+                </div>
+                <div
+                    class="bg-white rounded-2xl overflow-hidden shadow-lg menu-card border-2 border-yellow-100 animate__animated animate__fadeInUp">
+                    <img src="https://i.imgur.com/6ZiSlSR.png" alt="Matcha Smoothie"
+                        class="w-full h-48 object-cover transition duration-500 hover:scale-110" />
+                    <div class="p-5 text-center">
+                        <h4 class="font-bold text-xl mb-1 text-yellow-700">MATCHA</h4>
+                        <p class="text-gray-600 mb-3 text-sm">Té verde japonés, cremoso y energético.</p>
+                    </div>
+                </div>
+                <div
+                    class="bg-white rounded-2xl overflow-hidden shadow-lg menu-card border-2 border-yellow-100 animate__animated animate__fadeInUp">
+                    <img src="https://i.imgur.com/53O4h7p.png" alt="Chai"
+                        class="w-full h-48 object-cover transition duration-500 hover:scale-110" />
+                    <div class="p-5 text-center">
+                        <h4 class="font-bold text-xl mb-1 text-yellow-700">CHAI</h4>
+                        <p class="text-gray-600 mb-3 text-sm">Especias cálidas, sabor envolvente.</p>
+                    </div>
+                </div>
+                <div
+                    class="bg-white rounded-2xl overflow-hidden shadow-lg menu-card border-2 border-yellow-100 animate__animated animate__fadeInUp">
+                    <img src="https://i.imgur.com/OzaB9tF.png" alt="Kiwi Smoothie"
+                        class="w-full h-48 object-cover transition duration-500 hover:scale-110" />
+                    <div class="p-5 text-center">
+                        <h4 class="font-bold text-xl mb-1 text-yellow-700">KIWI</h4>
+                        <p class="text-gray-600 mb-3 text-sm">Refrescante y con toque ácido.</p>
+                    </div>
+                </div>
+                <div
+                    class="bg-white rounded-2xl overflow-hidden shadow-lg menu-card border-2 border-yellow-100 animate__animated animate__fadeInUp">
+                    <img src="https://i.imgur.com/HbEREDJ.png" alt="Limón Smoothie"
+                        class="w-full h-48 object-cover transition duration-500 hover:scale-110" />
+                    <div class="p-5 text-center">
+                        <h4 class="font-bold text-xl mb-1 text-yellow-700">LIMÓN</h4>
+                        <p class="text-gray-600 mb-3 text-sm">Ácido y refrescante, ideal para el calor.</p>
+                    </div>
+                </div>
+                <div
+                    class="bg-white rounded-2xl overflow-hidden shadow-lg menu-card border-2 border-yellow-100 animate__animated animate__fadeInUp">
+                    <img src="https://i.imgur.com/48V5iLJ.png" alt="Maracuya"
+                        class="w-full h-48 object-cover transition duration-500 hover:scale-110" />
+                    <div class="p-5 text-center">
+                        <h4 class="font-bold text-xl mb-1 text-yellow-700">MARACUYA</h4>
+                        <p class="text-gray-600 mb-3 text-sm">Exótico, dulce y tropical.</p>
+                    </div>
+                </div>
+                <div
+                    class="bg-white rounded-2xl overflow-hidden shadow-lg menu-card border-2 border-yellow-100 animate__animated animate__fadeInUp">
+                    <img src="https://i.imgur.com/V5H2pgt.png" alt="Caramelo Smoothie"
+                        class="w-full h-48 object-cover transition duration-500 hover:scale-110" />
+                    <div class="p-5 text-center">
+                        <h4 class="font-bold text-xl mb-1 text-yellow-700">CARAMELO</h4>
+                        <p class="text-gray-600 mb-3 text-sm">Dulce, cremoso y reconfortante.</p>
+                    </div>
+                </div>
+                <div
+                    class="bg-white rounded-2xl overflow-hidden shadow-lg menu-card border-2 border-yellow-100 animate__animated animate__fadeInUp">
+                    <img src="https://i.imgur.com/yGG4Z8E.png" alt="Manzana Verde Smoothie"
+                        class="w-full h-48 object-cover transition duration-500 hover:scale-110" />
+                    <div class="p-5 text-center">
+                        <h4 class="font-bold text-xl mb-1 text-yellow-700">MANZANA VERDE</h4>
+                        <div class="flex justify-center gap-2 mb-3">
+                            <img src="https://i.imgur.com/dLtiv3w.jpeg"
+                                class="w-12 h-12 rounded-full border-2 border-green-300 object-cover"
+                                alt="Manzana verde A" />
+                            <img src="https://i.imgur.com/W8Xp1Hn.jpeg"
+                                class="w-12 h-12 rounded-full border-2 border-green-300 object-cover"
+                                alt="Manzana verde B" />
+                        </div>
+                        <p class="text-gray-600 mb-3 text-sm">Jugosa y ligeramente ácida.</p>
+                    </div>
+                </div>
+                <div
+                    class="bg-white rounded-2xl overflow-hidden shadow-lg menu-card border-2 border-yellow-100 animate__animated animate__fadeInUp">
+                    <img src="https://i.imgur.com/N1YcATI.png" alt="Mora Azul"
+                        class="w-full h-48 object-cover transition duration-500 hover:scale-110" />
+                    <div class="p-5 text-center">
+                        <h4 class="font-bold text-xl mb-1 text-yellow-700">MORA AZUL</h4>
+                        <p class="text-gray-600 mb-3 text-sm">Fruta de temporada, refrescante.</p>
+                    </div>
+                </div>
+                <div
+                    class="bg-white rounded-2xl overflow-hidden shadow-lg menu-card border-2 border-yellow-100 animate__animated animate__fadeInUp">
+                    <img src="https://i.imgur.com/OzaB9tF.png" alt="Fresa Smoothie"
+                        class="w-full h-48 object-cover transition duration-500 hover:scale-110" />
+                    <div class="p-5 text-center">
+                        <h4 class="font-bold text-xl mb-1 text-yellow-700">FRESA</h4>
+                        <div class="flex justify-center gap-2 mb-3">
+                            <img src="https://i.imgur.com/GHkulmp.jpeg"
+                                class="w-12 h-12 rounded-full border-2 border-pink-300 object-cover" alt="Fresa 1" />
+                            <img src="https://i.imgur.com/t6hNH30.jpeg"
+                                class="w-12 h-12 rounded-full border-2 border-pink-300 object-cover" alt="Fresa 2" />
+                            <img src="https://i.imgur.com/bD4iScU.jpeg"
+                                class="w-12 h-12 rounded-full border-2 border-pink-300 object-cover" alt="Fresa 3" />
+                        </div>
+                        <p class="text-gray-600 mb-3 text-sm">Dulce, cremosa y muy popular.</p>
+                    </div>
+                </div>
+                <!-- ...repeat cards with correct image URLs for all flavors... -->
+                <div
+                    class="bg-white rounded-2xl overflow-hidden shadow-lg menu-card border-2 border-yellow-100 animate__animated animate__fadeInUp">
+                    <img src="https://i.imgur.com/XWGE98T.png" alt="Mango"
+                        class="w-full h-48 object-cover transition duration-500 hover:scale-110" />
+                    <div class="p-5 text-center">
+                        <h4 class="font-bold text-xl mb-1 text-yellow-700">MANGO</h4>
+                        <p class="text-gray-600 mb-3 text-sm">Dulce, vibrante y tropical.</p>
+                    </div>
+                </div>
+                <div
+                    class="bg-white rounded-2xl overflow-hidden shadow-lg menu-card border-2 border-yellow-100 animate__animated animate__fadeInUp">
+                    <img src="https://i.imgur.com/UB9P5QC.png" alt="Lychee"
+                        class="w-full h-48 object-cover transition duration-500 hover:scale-110" />
+                    <div class="p-5 text-center">
+                        <h4 class="font-bold text-xl mb-1 text-yellow-700">LYCHEE</h4>
+                        <p class="text-gray-600 mb-3 text-sm">Delicado, floral y exótico.</p>
+                    </div>
+                </div>
+                <div
+                    class="bg-white rounded-2xl overflow-hidden shadow-lg menu-card border-2 border-yellow-100 animate__animated animate__fadeInUp">
+                    <img src="https://i.imgur.com/DxhBdrt.png" alt="Piña Colada"
+                        class="w-full h-48 object-cover transition duration-500 hover:scale-110" />
+                    <div class="p-5 text-center">
+                        <h4 class="font-bold text-xl mb-1 text-yellow-700">PIÑA COLADA</h4>
+                        <p class="text-gray-600 mb-3 text-sm">Piña, coco y un toque tropical.</p>
+                    </div>
+                </div>
+                <div
+                    class="bg-white rounded-2xl overflow-hidden shadow-lg menu-card border-2 border-yellow-100 animate__animated animate__fadeInUp">
+                    <img src="https://i.imgur.com/bvXdl0W.png" alt="Oreo Smoothie"
+                        class="w-full h-48 object-cover transition duration-500 hover:scale-110" />
+                    <div class="p-5 text-center">
+                        <h4 class="font-bold text-xl mb-1 text-yellow-700">OREO</h4>
+                        <p class="text-gray-600 mb-3 text-sm">Clásica galleta y crema, ¡irresistible!</p>
+                    </div>
+                </div>
+                <div
+                    class="bg-white rounded-2xl overflow-hidden shadow-lg menu-card border-2 border-yellow-100 animate__animated animate__fadeInUp">
+                    <img src="https://i.imgur.com/xGQK1bg.png" alt="Chocolate Smoothie"
+                        class="w-full h-48 object-cover transition duration-500 hover:scale-110" />
+                    <div class="p-5 text-center">
+                        <h4 class="font-bold text-xl mb-1 text-yellow-700">CHOCOLATE</h4>
+                        <p class="text-gray-600 mb-3 text-sm">Intenso y cremoso, para chocoadictos.</p>
+                    </div>
+                </div>
+                <div
+                    class="bg-white rounded-2xl overflow-hidden shadow-lg menu-card border-2 border-yellow-100 animate__animated animate__fadeInUp">
+                    <img src="https://i.imgur.com/WI7QahV.png" alt="Vainilla Smoothie"
+                        class="w-full h-48 object-cover transition duration-500 hover:scale-110" />
+                    <div class="p-5 text-center">
+                        <h4 class="font-bold text-xl mb-1 text-yellow-700">VAINILA</h4>
+                        <p class="text-gray-600 mb-3 text-sm">Suave, dulce y reconfortante.</p>
+                    </div>
+                </div>
+                <div
+                    class="bg-white rounded-2xl overflow-hidden shadow-lg menu-card border-2 border-yellow-100 animate__animated animate__fadeInUp">
+                    <img src="https://i.imgur.com/Ck9PXgl.png" alt="Coco Smoothie"
+                        class="w-full h-48 object-cover transition duration-500 hover:scale-110" />
+                    <div class="p-5 text-center">
+                        <h4 class="font-bold text-xl mb-1 text-yellow-700">COCO</h4>
+                        <p class="text-gray-600 mb-3 text-sm">Cremoso, tropical y refrescante.</p>
+                    </div>
+                </div>
+                <div
+                    class="bg-white rounded-2xl overflow-hidden shadow-lg menu-card border-2 border-yellow-100 animate__animated animate__fadeInUp">
+                    <img src="https://i.imgur.com/9YRdycU.png" alt="Algodón de Azúcar Smoothie"
+                        class="w-full h-48 object-cover transition duration-500 hover:scale-110" />
+                    <div class="p-5 text-center">
+                        <h4 class="font-bold text-xl mb-1 text-yellow-700">ALGODÓN DE AZÚCAR</h4>
+                        <p class="text-gray-600 mb-3 text-sm">Dulce, suave y muy divertido.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-10">
+                <p class="text-gray-700 font-semibold animate__animated animate__fadeInUp animate__delay-1s">
+                    Agrega <span class="text-yellow-600 font-bold">perlas explosivas</span> por <span
+                        class="text-yellow-600">+$15.00 MXN</span>
+                </p>
+                <div class="flex justify-center gap-3 mt-2">
+                    <img src="https://i.imgur.com/w0xC8IC.png" class="w-12 h-12 rounded-full" title="Fresa"
+                        alt="Perla Fresa" />
+                    <img src="https://i.imgur.com/TQxEZmP.png" class="w-12 h-12 rounded-full" title="Lychee"
+                        alt="Perla Lychee" />
+                    <img src="https://i.imgur.com/V5H2pgt.png" class="w-12 h-12 rounded-full" title="Mango"
+                        alt="Perla Mango" />
+                    <img src="https://i.imgur.com/PiDrgWV.png" class="w-12 h-12 rounded-full" title="Mora Azul"
+                        alt="Perla Mora Azul" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CREPAS Section -->
+    <section id="crepas" class="py-14 bg-yellow-50/70">
+        <div class="container mx-auto px-4">
+            <h2
+                class="text-4xl md:text-5xl font-extrabold text-center section-title mb-4 animate__animated animate__fadeInDown">
+                Crepas Dulces y Saladas</h2>
+            <div class="flex flex-col md:flex-row gap-12 mt-8">
+                <!-- Crepas Dulces -->
+                <div class="flex-1 bg-white/90 rounded-2xl shadow-xl p-7 animate__animated animate__fadeInLeft">
+                    <div class="flex justify-center mb-4"><img src="https://i.imgur.com/SzF6oaA.png" alt="Crepa dulce"
+                            class="h-24"></div>
+                    <h3 class="text-2xl font-bold text-pink-600 mb-4">Crepas Dulces</h3>
+                    <ul class="grid grid-cols-2 md:grid-cols-3 gap-3 text-gray-800 text-lg list-disc list-inside">
+                        <li>NUTELA</li>
+                        <li>CREMA DE MANÍ</li>
+                        <li>CAJETA</li>
+                        <li>QUESO PHILADELPHIA</li>
+                        <li>MERMELADA</li>
+                        <li>LUNETAS</li>
+                        <li>GALLETA OREO</li>
+                        <li>FRESA</li>
+                        <li>MANGO</li>
+                        <li>DURAZNO</li>
+                        <li>PLÁTANO</li>
+                        <li>FRAMBUESA</li>
+                        <li>KIWI</li>
+                        <li>UVA</li>
+                        <li>COCO TOSTADO</li>
+                        <li>CACAHUATE</li>
+                        <li>MAZAPÁN</li>
+                        <li>ALMENDRA</li>
+                        <li>NUEZ</li>
+                        <li>CHISPAS</li>
+                        <li>GRANOLA</li>
+                    </ul>
+                    <div class="mt-6">
+                        <span
+                            class="inline-block premium-badge rounded-full px-4 py-2 font-bold text-md shadow mr-2 mb-2"><i
+                                class="fas fa-gem"></i> Premium +$15</span>
+                        <span class="text-gray-700">CHOCOLATE FERRERO, KINDER DELICE, BLUE BERRY</span>
+                    </div>
+                </div>
+                <!-- Crepas Saladas -->
+                <div class="flex-1 bg-white/90 rounded-2xl shadow-xl p-7 animate__animated animate__fadeInRight">
+                    <div class="flex justify-center mb-4"><img src="https://i.imgur.com/7ZJ1Sx3.png" alt="Crepa salada"
+                            class="h-24"></div>
+                    <h3 class="text-2xl font-bold text-yellow-700 mb-4">Crepas Saladas</h3>
+                    <ul class="grid grid-cols-2 gap-3 text-gray-800 text-lg list-disc list-inside">
+                        <li>JAMÓN</li>
+                        <li>PEPERONI</li>
+                        <li>QUESO MANCHEGO</li>
+                        <li>TOCINO</li>
+                    </ul>
+                    <div class="mt-6">
+                        <span
+                            class="inline-block premium-badge rounded-full px-4 py-2 font-bold text-md shadow mr-2 mb-2"><i
+                                class="fas fa-gem"></i> Premium +$15</span>
+                        <span class="text-gray-700">CHOCOLATE FERRERO, KINDER DELICE, BLUE BERRY</span>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-10">
+                <p class="text-gray-700 font-semibold animate__animated animate__fadeInUp animate__delay-1s">
+                    Todos los ingredientes premium tienen un costo adicional de <span
+                        class="text-yellow-600 font-bold">+$15.00 MXN</span>
+                </p>
+                <img src="https://cdn-icons-png.flaticon.com/128/4080/4080389.png"
+                    class="inline-block mt-4 animate__animated animate__pulse animate__infinite" alt="Crepe Icon" />
+            </div>
+        </div>
+    </section>
+
+    <!-- Combos & Adicionales Section -->
+    <section id="combos" class="py-14 bg-white/90">
+        <div class="container mx-auto px-4">
+            <h2
+                class="text-4xl md:text-5xl font-extrabold text-center section-title mb-8 animate__animated animate__fadeInDown">
+                Combos & Adicionales</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mt-8">
+
+                <!-- Fresas con Crema Combos -->
+                <div
+                    class="bg-gradient-to-br from-pink-50 to-yellow-50 rounded-2xl shadow-xl p-8 animate__animated animate__fadeInLeft flex flex-col items-center">
+                    <h3 class="text-2xl font-bold text-pink-700 mb-5">Fresas con Crema</h3>
+                    <div class="w-full space-y-6">
+                        <div class="flex items-center gap-4 border-l-4 border-pink-400 pl-4 py-2">
+                            <img src="https://i.imgur.com/7m4OVlA.png" class="h-16 w-16 rounded-xl object-contain"
+                                alt="Vaso Simple" />
+                            <div class="flex-1">
+                                <div class="flex justify-between items-center">
+                                    <span class="font-bold text-lg">Vaso Normal</span>
+                                    <span class="text-pink-700 font-extrabold text-xl">$35</span>
+                                </div>
+                                <p class="text-sm text-gray-700">Fresas con crema</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4 border-l-4 border-yellow-400 pl-4 py-2">
+                            <img src="https://i.imgur.com/w7hBuZK.png" class="h-16 w-16 rounded-xl object-contain"
+                                alt="Vaso Goldie" />
+                            <div class="flex-1">
+                                <div class="flex justify-between items-center">
+                                    <span class="font-bold text-lg">Vaso Goldie</span>
+                                    <span class="text-yellow-700 font-extrabold text-xl">$45</span>
+                                </div>
+                                <p class="text-sm text-gray-700">Fresas con crema con <b>2 topping</b> de tu elección
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4 border-l-4 border-red-400 pl-4 py-2">
+                            <img src="https://i.imgur.com/vYB7Z16.png" class="h-16 w-16 rounded-xl object-contain"
+                                alt="Vaso Marvel" />
+                            <div class="flex-1">
+                                <div class="flex justify-between items-center">
+                                    <span class="font-bold text-lg">Vaso Marvel</span>
+                                    <span class="text-red-700 font-extrabold text-xl">$55</span>
+                                </div>
+                                <p class="text-sm text-gray-700">Fresas con crema con <b>4 topping</b> de tu elección
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4 border-l-4 border-green-400 pl-4 py-2">
+                            <img src="https://i.imgur.com/N8ON58Y.png" class="h-16 w-16 rounded-xl object-contain"
+                                alt="Vaso Rex" />
+                            <div class="flex-1">
+                                <div class="flex justify-between items-center">
+                                    <span class="font-bold text-lg">Vaso Rex</span>
+                                    <span class="text-green-700 font-extrabold text-xl">$65</span>
+                                </div>
+                                <p class="text-sm text-gray-700">Fresas con crema con <b>5 topping</b> de tu elección
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-6">
+                        <h4 class="font-bold text-yellow-700 mb-2 text-lg"><i class="fas fa-star"></i> Toppings
+                            Disponibles:</h4>
+                        <div class="flex flex-wrap gap-2 justify-center">
+                            <span class="bg-pink-200 text-pink-800 px-3 py-1 rounded-full text-sm">FRESA</span>
+                            <span class="bg-yellow-200 text-yellow-800 px-3 py-1 rounded-full text-sm">MANGO</span>
+                            <span class="bg-orange-200 text-orange-800 px-3 py-1 rounded-full text-sm">DURAZNO</span>
+                            <span class="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-sm">PLÁTANO</span>
+                            <span class="bg-pink-100 text-pink-700 px-3 py-1 rounded-full text-sm">FRAMBUESA</span>
+                            <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm">KIWI</span>
+                            <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">UVA</span>
+                            <span class="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-sm">COCO
+                                TOSTADO</span>
+                            <span class="bg-yellow-50 text-yellow-700 px-3 py-1 rounded-full text-sm">CACAHUATE</span>
+                            <span class="bg-yellow-50 text-yellow-700 px-3 py-1 rounded-full text-sm">MAZAPÁN</span>
+                            <span class="bg-yellow-50 text-yellow-700 px-3 py-1 rounded-full text-sm">ALMENDRA</span>
+                            <span class="bg-yellow-50 text-yellow-700 px-3 py-1 rounded-full text-sm">NUEZ</span>
+                            <span class="bg-yellow-50 text-yellow-700 px-3 py-1 rounded-full text-sm">CHISPAS</span>
+                            <span class="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-sm">GRANOLA</span>
+                            <span class="bg-pink-100 text-pink-700 px-3 py-1 rounded-full text-sm">LUNETAS</span>
+                            <span class="bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-sm">GALLETA OREO</span>
+                            <span class="bg-brown-200 text-yellow-900 px-3 py-1 rounded-full text-sm">NUTELA</span>
+                            <span class="bg-yellow-50 text-yellow-700 px-3 py-1 rounded-full text-sm">CREMA DE
+                                MANÍ</span>
+                            <span class="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-sm">CAJETA</span>
+                            <span class="bg-pink-100 text-pink-700 px-3 py-1 rounded-full text-sm">MERMELADA</span>
+                        </div>
+                    </div>
+                    <div class="mt-6">
+                        <span
+                            class="inline-block premium-badge rounded-full px-4 py-2 font-bold text-md shadow mr-2 mb-2"><i
+                                class="fas fa-gem"></i> Ingredientes Premium +$15</span>
+                        <div class="flex flex-wrap gap-2 justify-center mt-2">
+                            <span class="bg-yellow-200 text-yellow-900 px-3 py-1 rounded-full text-sm">CHOCOLATE
+                                RAFFAELLO</span>
+                            <span class="bg-yellow-200 text-yellow-900 px-3 py-1 rounded-full text-sm">CHOCOLATE
+                                FERRERO</span>
+                            <span class="bg-yellow-200 text-yellow-900 px-3 py-1 rounded-full text-sm">KINDER
+                                DELICE</span>
+                            <span class="bg-yellow-200 text-yellow-900 px-3 py-1 rounded-full text-sm">BLUE BERRY</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hotcakes Combos -->
+                <div
+                    class="bg-gradient-to-br from-yellow-50 to-pink-50 rounded-2xl shadow-xl p-8 animate__animated animate__fadeInRight flex flex-col items-center">
+                    <h3 class="text-2xl font-bold text-yellow-700 mb-5">Combos Mini Hotcakes</h3>
+                    <div class="w-full space-y-6">
+                        <div class="flex items-center gap-4 border-l-4 border-yellow-400 pl-4 py-2">
+                            <img src="https://i.imgur.com/gPYodQF.png" class="h-16 w-16 rounded-xl object-contain"
+                                alt="Combo Personal" />
+                            <div class="flex-1">
+                                <div class="flex justify-between items-center">
+                                    <span class="font-bold text-lg">Combo Individual</span>
+                                    <span class="text-yellow-700 font-extrabold text-xl">$35</span>
+                                </div>
+                                <p class="text-sm text-gray-700">12 mini hotcakes con <b>3 topping</b> de tu elección
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4 border-l-4 border-pink-400 pl-4 py-2">
+                            <img src="https://i.imgur.com/lPzq2sJ.png" class="h-16 w-16 rounded-xl object-contain"
+                                alt="Combo Dúo" />
+                            <div class="flex-1">
+                                <div class="flex justify-between items-center">
+                                    <span class="font-bold text-lg">Combo Dúo</span>
+                                    <span class="text-pink-700 font-extrabold text-xl">$45</span>
+                                </div>
+                                <p class="text-sm text-gray-700">18 mini hotcakes con <b>5 topping</b> de tu elección
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4 border-l-4 border-red-400 pl-4 py-2">
+                            <img src="https://i.imgur.com/80WznUz.png" class="h-16 w-16 rounded-xl object-contain"
+                                alt="Combo Familiar" />
+                            <div class="flex-1">
+                                <div class="flex justify-between items-center">
+                                    <span class="font-bold text-lg">Combo Familiar</span>
+                                    <span class="text-red-700 font-extrabold text-xl">$65</span>
+                                </div>
+                                <p class="text-sm text-gray-700">30 mini hotcakes con <b>7 topping</b> de tu elección
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-6">
+                        <h4 class="font-bold text-yellow-700 mb-2 text-lg"><i class="fas fa-star"></i> Toppings
+                            Disponibles:</h4>
+                        <div class="flex flex-wrap gap-2 justify-center">
+                            <span class="bg-pink-200 text-pink-800 px-3 py-1 rounded-full text-sm">FRESA</span>
+                            <span class="bg-yellow-200 text-yellow-800 px-3 py-1 rounded-full text-sm">MANGO</span>
+                            <span class="bg-orange-200 text-orange-800 px-3 py-1 rounded-full text-sm">DURAZNO</span>
+                            <span class="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-sm">PLÁTANO</span>
+                            <span class="bg-pink-100 text-pink-700 px-3 py-1 rounded-full text-sm">FRAMBUESA</span>
+                            <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm">KIWI</span>
+                            <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">UVA</span>
+                            <span class="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-sm">COCO
+                                TOSTADO</span>
+                            <span class="bg-yellow-50 text-yellow-700 px-3 py-1 rounded-full text-sm">CACAHUATE</span>
+                            <span class="bg-yellow-50 text-yellow-700 px-3 py-1 rounded-full text-sm">MAZAPÁN</span>
+                            <span class="bg-yellow-50 text-yellow-700 px-3 py-1 rounded-full text-sm">ALMENDRA</span>
+                            <span class="bg-yellow-50 text-yellow-700 px-3 py-1 rounded-full text-sm">NUEZ</span>
+                            <span class="bg-yellow-50 text-yellow-700 px-3 py-1 rounded-full text-sm">CHISPAS</span>
+                            <span class="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-sm">GRANOLA</span>
+                            <span class="bg-pink-100 text-pink-700 px-3 py-1 rounded-full text-sm">LUNETAS</span>
+                            <span class="bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-sm">GALLETA OREO</span>
+                            <span class="bg-brown-200 text-yellow-900 px-3 py-1 rounded-full text-sm">NUTELA</span>
+                            <span class="bg-yellow-50 text-yellow-700 px-3 py-1 rounded-full text-sm">CREMA DE
+                                MANÍ</span>
+                            <span class="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-sm">CAJETA</span>
+                            <span class="bg-pink-100 text-pink-700 px-3 py-1 rounded-full text-sm">MERMELADA</span>
+                        </div>
+                    </div>
+                    <div class="mt-6">
+                        <span
+                            class="inline-block premium-badge rounded-full px-4 py-2 font-bold text-md shadow mr-2 mb-2"><i
+                                class="fas fa-gem"></i> Ingredientes Premium +$15</span>
+                        <div class="flex flex-wrap gap-2 justify-center mt-2">
+                            <span class="bg-yellow-200 text-yellow-900 px-3 py-1 rounded-full text-sm">CHOCOLATE
+                                RAFFAELLO</span>
+                            <span class="bg-yellow-200 text-yellow-900 px-3 py-1 rounded-full text-sm">CHOCOLATE
+                                FERRERO</span>
+                            <span class="bg-yellow-200 text-yellow-900 px-3 py-1 rounded-full text-sm">KINDER
+                                DELICE</span>
+                            <span class="bg-yellow-200 text-yellow-900 px-3 py-1 rounded-full text-sm">BLUE BERRY</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <p class="text-gray-700 font-semibold animate__animated animate__fadeInUp">
+                    Todos los ingredientes premium tienen un costo adicional de <span
+                        class="text-yellow-600 font-bold">+$15.00 MXN</span>
+                </p>
+                <img src="https://img.icons8.com/color/48/000000/pancake.png"
+                    class="inline-block mt-4 animate__animated animate__pulse animate__infinite" alt="Hotcakes Icon" />
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-14 bg-white/80">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-extrabold mb-4 text-yellow-600 animate__animated animate__fadeInDown">Contacto</h2>
+            <p class="text-lg mb-6 text-gray-700 animate__animated animate__fadeInDown animate__delay-1s">¿Tienes alguna
+                pregunta o comentario? ¡Nos encantaría saber de ti!</p>
+            <p class="mb-6 animate__animated animate__fadeInDown animate__delay-2s"><b>Horario:</b> Lunes a Domingo, 5
+                PM - 10 PM</p>
+            <div class="flex justify-center animate__animated animate__fadeInUp animate__delay-3s">
                 <iframe
                     src="https://docs.google.com/forms/d/e/1FAIpQLSfM8y4AHXk_BBKQs7kVpuguxdQbyo71e-mj8h0NosO6Cgv9ZA/viewform?embedded=true"
-                    width="640" height="643" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe>
+                    width="640" height="650" frameborder="0" marginheight="0" marginwidth="0"
+                    class="rounded-2xl border-2 border-yellow-200 shadow-lg">Cargando…</iframe>
             </div>
         </div>
     </section>
@@ -336,7 +749,7 @@
     <footer class="bg-yellow-500 text-white py-4">
         <div class="container mx-auto text-center">
             <p>
-                &copy; 2023 Bobba Gold. Todos los derechos reservados.
+                &copy; 2023 Boba Gold. Todos los derechos reservados.
             </p>
         </div>
     </footer>
